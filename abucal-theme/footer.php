@@ -6,40 +6,63 @@
  */
 ?>
 <footer class="site-footer">
-	<div class="container footer-inner glass">
-		<div class="footer-brand">
-			<span class="brand-text">Abu <strong>Dhabi</strong></span>
-			<p><?php esc_html_e( 'Precise, ISO-certified calibration and testing services in Abu Dhabi and across the UAE.', 'abucal' ); ?></p>
+	<div class="container footer-cols">
+		<!-- Brand + tagline + social -->
+		<div class="footer-col footer-brand">
+			<span class="brand-text">Abu <strong>Dhabi</strong> Calibration</span>
+			<p><?php esc_html_e( 'We value customer satisfaction the most. That is why our customers refer us to others across the UAE.', 'abucal' ); ?></p>
+			<div class="footer-social">
+				<a href="#" aria-label="Instagram">ig</a>
+				<a href="#" aria-label="LinkedIn">in</a>
+				<a href="#" aria-label="Facebook">f</a>
+			</div>
 		</div>
 
-		<div class="footer-links">
-			<?php
-			if ( has_nav_menu( 'footer' ) ) {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'footer',
-						'container'      => false,
-					)
-				);
-			} else {
-				echo '<ul>';
-				echo '<li><a href="' . esc_url( home_url( '/#about' ) ) . '">' . esc_html__( 'About', 'abucal' ) . '</a></li>';
-				echo '<li><a href="' . esc_url( home_url( '/#services' ) ) . '">' . esc_html__( 'Services', 'abucal' ) . '</a></li>';
-				echo '<li><a href="' . esc_url( home_url( '/#industries' ) ) . '">' . esc_html__( 'Industries', 'abucal' ) . '</a></li>';
-				echo '<li><a href="' . esc_url( home_url( '/#contact' ) ) . '">' . esc_html__( 'Contact', 'abucal' ) . '</a></li>';
-				echo '</ul>';
-			}
-			?>
+		<!-- Our Company -->
+		<div class="footer-col">
+			<h4><?php esc_html_e( 'Our Company', 'abucal' ); ?></h4>
+			<ul>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>"><?php esc_html_e( 'Careers', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>"><?php esc_html_e( 'Blogs', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Contact Us', 'abucal' ); ?></a></li>
+			</ul>
 		</div>
 
-		<div class="footer-social">
-			<a href="#" aria-label="Facebook">f</a>
-			<a href="#" aria-label="LinkedIn">in</a>
-			<a href="#" aria-label="Instagram">ig</a>
+		<!-- Our Services -->
+		<div class="footer-col">
+			<h4><?php esc_html_e( 'Our Services', 'abucal' ); ?></h4>
+			<ul>
+				<li><a href="<?php echo esc_url( home_url( '/pressure-calibration/' ) ); ?>"><?php esc_html_e( 'Pressure Calibration', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/electrical-calibration/' ) ); ?>"><?php esc_html_e( 'Electrical Calibration', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/temperature-mapping/' ) ); ?>"><?php esc_html_e( 'Temperature Mapping', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/portable-appliance-testing-pat-test/' ) ); ?>"><?php esc_html_e( 'PAT Testing', 'abucal' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>"><?php esc_html_e( 'All Services', 'abucal' ); ?></a></li>
+			</ul>
+		</div>
+
+		<!-- Location -->
+		<div class="footer-col">
+			<h4><?php esc_html_e( 'Location', 'abucal' ); ?></h4>
+			<p class="footer-addr">
+				<strong><?php esc_html_e( 'Abu Dhabi Calibration & Testing Services LLC', 'abucal' ); ?></strong><br>
+				<?php esc_html_e( 'Building No. 79, Musaffah M-40,', 'abucal' ); ?><br>
+				<?php esc_html_e( 'Abu Dhabi, United Arab Emirates', 'abucal' ); ?>
+			</p>
+			<p class="footer-addr">
+				<a href="tel:+971566654326">+971 56 665 4326</a><br>
+				<a href="mailto:info@abucal.ae">info@abucal.ae</a>
+			</p>
 		</div>
 	</div>
 
-	<p class="copyright">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php esc_html_e( 'All Rights Reserved.', 'abucal' ); ?></p>
+	<div class="footer-bottom">
+		<div class="container footer-bottom-inner">
+			<span><?php esc_html_e( 'Copyright', 'abucal' ); ?> &copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+			<span><?php esc_html_e( 'ISO 9001 & ISO/IEC 17025 Aligned', 'abucal' ); ?></span>
+		</div>
+	</div>
 </footer>
 
 <?php
