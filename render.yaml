@@ -6,7 +6,7 @@
 #
 # NOTE: Render's free tier sleeps after ~15 min of inactivity (first visit
 # after that is slow to wake). Great for a demo. For a permanent business
-# site, use a paid plan with a persistent disk, or a WordPress host.
+# site, use a paid plan (and add a persistent disk), or a WordPress host.
 
 services:
   - type: web
@@ -14,9 +14,3 @@ services:
     runtime: docker
     dockerfilePath: ./deploy/Dockerfile
     plan: free
-    # Keep the SQLite database + uploads across restarts with a small disk.
-    # (Render's free plan allows one disk; remove this block if not needed.)
-    disk:
-      name: wp-data
-      mountPath: /var/www/html/wp-content/database
-      sizeGB: 1
