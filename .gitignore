@@ -1,0 +1,30 @@
+# WordPress core & runtime (don't commit the whole WP install)
+site/wp-admin/
+site/wp-includes/
+site/wp-content/plugins/
+site/wp-content/upgrade/
+site/wp-content/uploads/
+site/wp-content/cache/
+site/wp-*.php
+site/index.php
+site/xmlrpc.php
+site/license.txt
+site/readme.html
+site/wp-cli.phar
+site/.htaccess
+
+# Keep the theme and the SQLite db integration ignored (large / generated)
+site/wp-content/db.php
+site/wp-content/database/
+
+# Secrets
+site/wp-config.php
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
+*.log
+
+# Node (if ever used)
+node_modules/
+dist/
