@@ -1,9 +1,12 @@
-# Render.com Blueprint for WordPress + MySQL.
-# Deploy: push this repo to GitHub, then in Render click "New +" -> "Blueprint"
-# and point it at your repo. Render reads this file automatically.
+# Render.com Blueprint for WordPress (SQLite — no separate database needed).
 #
-# NOTE: Render's free tier sleeps after inactivity and the free database is
-# time-limited. For a permanent business site, upgrade the plans below.
+# Deploy: push this repo to GitHub, then in Render click "New +" -> "Blueprint"
+# and select this repo. Render reads this file automatically and builds the
+# Docker image in deploy/Dockerfile.
+#
+# NOTE: Render's free tier sleeps after ~15 min of inactivity (first visit
+# after that is slow to wake). Great for a demo. For a permanent business
+# site, use a paid plan with a persistent disk, or a WordPress host.
 
 services:
   - type: web
@@ -11,24 +14,9 @@ services:
     runtime: docker
     dockerfilePath: ./deploy/Dockerfile
     plan: free
-    envVars:
-      - key: WORDPRESS_DB_HOST
-        fromDatabase:
-          name: abudhabi-db
-          property: host
-      - key: WORDPRESS_DB_NAME
-        fromDatabase:
-          name: abudhabi-db
-          property: database
-      - key: WORDPRESS_DB_USER
-        fromDatabase:
-          name: abudhabi-db
-          property: user
-      - key: WORDPRESS_DB_PASSWORD
-        fromDatabase:
-          name: abudhabi-db
-          property: password
-
-databases:
-  - name: abudhabi-db
-    plan: free
+    # Keep the SQLite database + uploads across restarts with a small disk.
+    # (Render's free plan allows one disk; remove this block if not needed.)
+    disk:
+      name: wp-data
+      mountPath: /var/www/html/wp-content/database
+      sizeGB: 1
